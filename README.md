@@ -4,7 +4,7 @@ A todo list with an attempt in Glass design
 You can add new tasks, delete and edit existing tasks and mark them as "completed"
 
 #### Exterior ####
-![alt text](https://rynn-lee.tk/images/todo-1.png)
+![alt text](https://rynnlee.tk/images/todo-1.png)
 
 #### Built with ####
 REACT<br>
