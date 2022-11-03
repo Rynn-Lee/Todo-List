@@ -1,8 +1,8 @@
-### INSTALL ALL THE DEPENDENCIES FIRST ###
+### -- INSTALL ALL THE DEPENDENCIES FIRST -- ###
 npm install
 
-### TO RUN THE APP ###
+### -- TO RUN THE APP -- ###
 npm run start
 
-### INSTALLATION WITH GIT ###
+### -- INSTALLATION WITH GIT -- ###
 git clone https://github.com/Rynn-Lee/React-Todo.git
