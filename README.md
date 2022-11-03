@@ -1,5 +1,8 @@
-#### INTRODUCTION ####
-My fisrt attempt to make a React.js app
-It's TODO list on React
-#### HOW TO RUN ####
-To run the app, use - npm sun start
+### INSTALL ALL THE DEPENDENCIES FIRST ###
+npm install
+
+### TO RUN THE APP ###
+npm run start
+
+### INSTALLATION WITH GIT ###
+git clone https://github.com/Rynn-Lee/React-Todo.git
