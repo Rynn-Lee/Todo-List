@@ -1,0 +1,83 @@
+body
+    margin: 0.1px
+    padding: 0px
+    color: #f1f1f1
+    font: 
+        size: 13pt
+        family: monospace
+    background: linear-gradient(to right, #10061a 0%, #270303 100%)
+
+.fa-code
+    color: orange
+
+.fa-solid
+    transition: 0.2s
+
+.fa-solid:hover
+    color: orange
+.icons
+    user-select: none
+
+.taskfield
+    margin-top: 10px
+    border: none
+    background: #ffffff10
+    padding: 10px
+    color: #fff
+    border-radius: 15px
+
+.Nav
+    background: linear-gradient(to right, #10061a 0%, #270303 100%)
+    z-index: 100
+    left: 0px
+    right: 0px
+    transition: 110ms
+    font-size: 11pt
+    justify-content: space-between
+    position: fixed
+    display: flex
+    padding: 20px
+
+.content-wrapper
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    position: relative
+    top: 65px
+    padding: 0px 100px 0px 100px
+    left: 0px
+    right: 0px
+.card
+    display: flex
+    flex-direction: column
+    position: relative
+    transition: 0.5s
+    border-radius: 15px
+    border: 1px solid #2929293a
+    background: #2222223a
+    width: 100%
+    padding: 20px
+    margin-top: 15px
+    .top
+        width: 100%
+        display: flex
+        justify-content: space-between
+
+@keyframes swapAway 
+    from
+        opacity: 1
+    to
+        background: #ff00007a
+        opacity: 0
+
+@keyframes Completed 
+    0%
+        background: #2222223a
+        opacity: 1
+    50%
+        background: #00fff227
+        opacity: 0.6
+    100%
+        background: #2222223a
+        opacity: 1
