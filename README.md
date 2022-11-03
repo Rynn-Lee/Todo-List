@@ -4,11 +4,12 @@ A todo list with an attempt in Glass design
 You can add new tasks, delete and edit existing tasks and mark them as "completed"
 
 #### Exterior ####
-![alt text](https://rynn-lee.tk/images/readme-1.png)
+![alt text](https://rynn-lee.tk/images/todo-1.png)
 
 #### Built with ####
-REACT
+REACT<br>
 SASS
 
 #### HOW TO RUN ####
-To run the app, use - npm sun start
+To run the app, use
+```npm sun start```
