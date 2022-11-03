@@ -66,9 +66,9 @@ const App = () => {
 
 
   const [todos, setTodos] = useState([
-    {id: 1, title: 'Task #1', description: 'Здесь описание Амёб', stateRN: 'Active'},
-    {id: 2, title: 'Task #2', description: 'Здесь описание Бубех', stateRN: 'Active'},
-    {id: 3, title: 'Task #3', description: 'Ъо ииоьъиоъиьи', stateRN: 'Active'},
+    {id: 1, title: 'Task #1', description: 'Task description #1', stateRN: 'Active'},
+    {id: 2, title: 'Task #2', description: 'Task description #2', stateRN: 'Active'},
+    {id: 3, title: 'Task #3', description: 'Task description #3', stateRN: 'Active'},
   ].reverse())
 
   const createTodo = (title, description, stateRN) => {

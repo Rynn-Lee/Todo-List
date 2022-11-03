@@ -2,14 +2,14 @@ import { useState } from "react"
 
 const CreateTask = (props) => {
 
-    const [title, setTitle] = useState('Новая задача');
-    const [description, setDescription] = useState('Описание пустое');
+    const [title, setTitle] = useState('New Task');
+    const [description, setDescription] = useState('Empty description');
     
     return(
-        <div className="card">Создать задачу
-            <textarea className="taskfield" placeholder="Название" onChange={(e) => setTitle(e.target.value)}></textarea>
-            <textarea className="taskfield" placeholder="Описание" onChange={(e) => setDescription(e.target.value)}></textarea>
-            <button className="taskfield" onClick={() => props.onCreate(title, description)}>Отправить</button>
+        <div className="card">Create a todo
+            <textarea className="taskfield" placeholder="Title" onChange={(e) => setTitle(e.target.value)}></textarea>
+            <textarea className="taskfield" placeholder="Description" onChange={(e) => setDescription(e.target.value)}></textarea>
+            <button className="taskfield" onClick={() => props.onCreate(title, description)}>Create a new task</button>
         </div>
     )
 }
