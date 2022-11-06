@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const CreateTask = (props) => {
+export const EditCard = (props) => {
 
 // * --------------------- useStates -------------------
 
@@ -17,5 +17,3 @@ const CreateTask = (props) => {
         </div>
     )
 }
-
-export default CreateTask

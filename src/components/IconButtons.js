@@ -1,15 +1,31 @@
-export const IconButtons = (props) => {
+export const IconButtons = ({onDelete, onClickSwap, onComplete, onCompleteAnimation, onEdit, completed}) => {
+    
+// * --------------------- CALLS deleteTodo() in App.js and summons Animation -------------------
+
     const deleteFunc = () => {
-        props.onDelete()
-        props.onClickSwap()
+        onDelete()
+        onClickSwap()
     }
 
+// * --------------------- CALLS completeTodo() in App.js and summons Animation -------------------
+
     const completeFunc = () => {
-        props.onComplete()
-        props.onCompleteAnimation()
+        onComplete()
+        onCompleteAnimation()
     }
+    
+// * --------------------- Icons -------------------
+
+
     return(
-        <span className='icons'><i className="fa-solid fa-check" onClick={completeFunc}></i> | <i className="fa-solid fa-trash" onClick={deleteFunc}></i> | <i className="fa-solid fa-pen-to-square"></i></span>
+        <span className='icons'>
+            {!completed && (
+                <>
+                    <i className="fa-solid fa-check" onClick={completeFunc}></i> | <i className="fa-solid fa-pen-to-square" onClick={onEdit}></i> | 
+                </>
+            )}
+            <i className="fa-solid fa-trash" onClick={deleteFunc}></i>
+        </span>
     );
 }
 

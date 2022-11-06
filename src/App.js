@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Header } from './components/Header';
+import { EditCard } from './components/EditCard';
+import { todoService } from './api/todo';
 import Card from './components/Card';
 import CreateTask from './components/CreateTask';
 import './App.sass';
@@ -44,101 +46,77 @@ import './App.sass';
 
 // * --------------------- ARRAYS -------------------
 
-
-
-
 const App = () => {
 
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const handleScroll = () =>{
-    const position = window.scrollY;
-    setScrollPosition(position)
-  };
+  const [todos, setTodos] = useState([])
+
+// * --------------------- FUNCTIONS -------------------
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll, {passive: true});
-    console.log("Scroll even listener has been added");
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      console.log("Scroll even listener has been deleted");
+    const fetchTodos = async () => {
+      const fetchedTodos = todoService.fetchAll()
+      setTodos(fetchedTodos)
     }
-  }, []);
+
+    fetchTodos()
+  },[])
 
 
-  const [todos, setTodos] = useState([
-    {id: 1, title: 'Task #1', description: 'Task description #1', stateRN: 'Active'},
-    {id: 2, title: 'Task #2', description: 'Task description #2', stateRN: 'Active'},
-    {id: 3, title: 'Task #3', description: 'Task description #3', stateRN: 'Active'},
-  ].reverse())
-
-  const createTodo = (title, description, stateRN) => {
-    const maximum = todos.map(todo => {
-      return todo.id;
+  const editTodo = (id, title, description) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) return {...todo, title, description}
+      else return todo
     })
-    let max = 0
-    if((max = Math.max(...maximum)) === -Infinity){
-      max = 1;
-    }
-    else{
-      max = Math.max(...maximum)+1
-    }
-    const newTodo = {
-      id: max,
-      title,
-      description,
-      stateRN: "Active"
-    }
+    todoService.update(id, {title, description})
+    setTodos(newTodos)
+  }
+
+  const createTodo = async (title, description) => {
+    const newTodo = await todoService.create({title, description})
     setTodos([newTodo, ...todos])
   }
 
   const completeTodo = (id) => {
-    console.log(id)
     const filtered = todos.map((todo) => {
-      if(todo.id === id){
-        return {
-          ...todo, stateRN: 'Completed',
-        }
-      }
-      else{
-        return todo;
-      }
+      return todo.id === id ? {...todo, completed: true} : todo
     })
+    todoService.update(id, {completed: true})
     setTodos(filtered)
   }
 
-  let Timeouts = {}
   const deleteTodo = (id) => {
-    Timeouts[id] = setTimeout(() => {
-
-      const newTodos = todos;
-      const filtered = newTodos.filter((todo) =>{
-        if(todo.id === id){
-          return false
-        }
-        else{
-          return true
-        }
-      });
+    setTimeout(() => {
+      const filtered = todos.filter((todo) => todo.id !== id);
       setTodos(filtered);
     }, 410)
+    todoService.delete(id)
   }
 
-  // const onComplete = (id) => {
-  //   const newState = todos
-  // }
+// * --------------------- MAIN APP HTML -------------------
   
   return (
     <div className='App'>
-      <Header Scrolled={scrollPosition}/>
+      <Header />
       <main className='content-wrapper'>
       <CreateTask onCreate={createTodo}/>
-        {/* {array.map((value, index) => {
+        {/* {todos.map((value, index) => {
           return <span key={index}>{value}</span>
         })} */}
+         
+        
         {
-          todos.map((todo) => {
+          todos.map((todo, index) => {
             return(
-              <Card key={todo.id} id={todo.id} title={todo.title} stateRN={todo.stateRN} onDelete={() => deleteTodo(todo.id)} onComplete={() => completeTodo(todo.id)}> {todo.description}</Card>
+              <Card 
+                key={todo.id} 
+                id={todo.id} 
+                title={todo.title} 
+                completed={todo.completed} 
+                onEdit={(title, description) => editTodo(todo.id, title, description)} 
+                onDelete={() => deleteTodo(todo.id)} 
+                onComplete={() => completeTodo(todo.id)} 
+                description={todo.description} 
+              />
             )
           })
         }
@@ -151,9 +129,3 @@ const App = () => {
 
 
 export default App;
-
-// TODO VS code для работы с JSX
-// TODO VS Создание task
-// TODO Сделать верстку для todo
-
-//* Добавил ScrollChecker в Header.js и в начале App.js
