@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Header } from './components/Header';
-import { EditCard } from './components/EditCard';
 import { todoService } from './api/todo';
 import Card from './components/Card';
 import CreateTask from './components/CreateTask';
@@ -54,7 +53,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchTodos = async () => {
-      const fetchedTodos = todoService.fetchAll()
+      const fetchedTodos = todoService.fetchTodosAll()
       setTodos(fetchedTodos)
     }
 
@@ -102,8 +101,6 @@ const App = () => {
         {/* {todos.map((value, index) => {
           return <span key={index}>{value}</span>
         })} */}
-         
-        
         {
           todos.map((todo, index) => {
             return(

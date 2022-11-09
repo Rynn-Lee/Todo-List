@@ -2,7 +2,7 @@ const URL = "http://localhost:1337/api/todos/"
 
 
 export const todoService = {
-  async getAll() {
+  async fetchTodosAll() {
     try{
       const response = await fetch(URL)
       const fetchedTodos = await response.json()
