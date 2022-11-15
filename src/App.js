@@ -53,7 +53,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchTodos = async () => {
-      const fetchedTodos = todoService.fetchTodosAll()
+      const fetchedTodos = todoService.fetchAll()
       setTodos(fetchedTodos)
     }
 

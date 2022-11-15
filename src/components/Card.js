@@ -48,11 +48,11 @@ const Card = ({ id, title, completed, description , onDelete, onComplete, onEdit
   return (
     <div className='card' style={swapAnimation}>
       <div className='top'>
-        <span>#{id}| {!editMode ? title : <input value={editTitle} onChange={(e) => setEditTitle(e.target.value)} />} - <span style={isActive}>{completed ? 'Completed' : 'Active'}</span></span>
-        {!editMode ? <IconButtons completed={completed} onDelete={onDelete} onClickSwap={() => handleClickAnimation("Delete")} onEdit={handleEdit} onComplete={onComplete} onCompleteAnimation={() => handleClickAnimation("Completed")}/> : <button onClick={handleSave}>save</button>}
+        <span>#{id}| {!editMode ? title : <input className="taskfield" value={editTitle} onChange={(e) => setEditTitle(e.target.value)} />} - <span style={isActive}>{completed ? 'Completed' : 'Active'}</span></span>
+        {!editMode ? <IconButtons completed={completed} onDelete={onDelete} onClickSwap={() => handleClickAnimation("Delete")} onEdit={handleEdit} onComplete={onComplete} onCompleteAnimation={() => handleClickAnimation("Completed")}/> : <button className="taskfield" onClick={handleSave}>Save changes</button>}
       </div>
       <div className='cardBody'>
-        {editMode ? <textarea value={editDescription} onChange={(e) => setEditDescription(e.target.value)} /> : <pre>{description}</pre>}
+        {editMode ? <textarea className="taskfield editfield" value={editDescription} onChange={(e) => setEditDescription(e.target.value)} /> : <pre>{description}</pre>}
       </div>
     </div>
   )
