@@ -1,6 +1,6 @@
 # 🖊️ About the project
-My fisrt attempt to make a React.js app
-A todo list with an attempt in Glass design
+My fisrt attempt to make a React.js app<br>
+A todo list with Glass design<br>
 You can add new tasks, delete and edit existing tasks and mark them as "completed"
 
 # 👓 Exterior
