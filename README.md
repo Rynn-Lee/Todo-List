@@ -11,6 +11,6 @@ You can add new tasks, delete and edit existing tasks and mark them as "complete
 
 # 🛠️ HOW TO RUN
 To clone the repository, use<br>
-```git clone https://github.com/Rynn-Lee/React-Todo```<br><br>
+```git clone https://github.com/Rynn-Lee/React-Todo.git```<br><br>
 To run the app, use - ```npm run start``` in the "React-Todo" folder<br>
 To run the server, use - ```npm start``` in the "back-end" folder
