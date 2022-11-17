@@ -2,7 +2,7 @@ const URL = "http://localhost:1337/api/todos/"
 
 
 export const todoService = {
-  async getAll() {
+  async fetchAll() {
     try{
       const response = await fetch(URL)
       const fetchedTodos = await response.json()
@@ -41,8 +41,8 @@ export const todoService = {
       completed: newTodo.data.attributes.completed
     }
   },
-  async update(data) {
-    const response = await fetch(URL + data.id, {
+  async update(id, data) {
+    const response = await fetch(URL + id, {
         method: 'PUT',
         headers: {
         'Content-Type': 'application/json',
@@ -58,9 +58,9 @@ export const todoService = {
     return response.json()
   },
   async delete(data) {
-    const response = await fetch(URL + data.id, {
+    const response = await fetch(URL + data, {
         method: 'DELETE'
-      })
-      return response.json()
+    })
+    return response.json()
   }
 }

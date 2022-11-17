@@ -53,7 +53,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchTodos = async () => {
-      const fetchedTodos = todoService.fetchAll()
+      const fetchedTodos = await todoService.fetchAll()
       setTodos(fetchedTodos)
     }
 
@@ -98,9 +98,6 @@ const App = () => {
       <Header />
       <main className='content-wrapper'>
       <CreateTask onCreate={createTodo}/>
-        {/* {todos.map((value, index) => {
-          return <span key={index}>{value}</span>
-        })} */}
         {
           todos.map((todo, index) => {
             return(
