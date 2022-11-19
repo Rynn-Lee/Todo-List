@@ -40,6 +40,7 @@ export const todoService = {
       description: newTodo.data.attributes.description,
       completed: newTodo.data.attributes.completed
     }
+    
   },
   async update(id, data) {
     const response = await fetch(URL + id, {

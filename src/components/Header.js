@@ -48,7 +48,7 @@ export const Header = () => {
   return (
     <nav className='Nav' style={solidBg}>
       <span className='Logo'>_RynnLee <i className="fa-solid fa-code"></i> Sketch</span>
-      <span className='Logo'>Scrolled: {scrollPosition}</span>
+      <span className='Logo'>Your Tasks</span>
     </nav>
   )
 }
