@@ -1,17 +1,18 @@
 import { useState } from 'react'
 import styles from './create-card.module.sass'
-import { addItem } from '@/lib/local-storage'
+import { todo } from '@/types/todo'
 
-export default function CreateCard({add}: any){
-  const [todoData, setTodoData] = useState({
+export default function CreateCard({add}: {add: Function}){
+  const [todoData, setTodoData] = useState<todo>({
     title: "",
     description: "",
-    active: true
+    active: true,
+    timestamp: 0
   })
 
   const finishTodo = () => {
-    setTodoData({title: "", description: "", active: true})
     add(todoData)
+    setTodoData({title: "", description: "", active: true, timestamp: 0})
   }
 
   return(

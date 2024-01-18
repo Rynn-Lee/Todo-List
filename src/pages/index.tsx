@@ -1,17 +1,18 @@
 import CreateCard from '@/components/CreateCard/create-card'
 import TodoCard from '@/components/TodoCard/todo-card'
 import { addItem, editByTimestamp, getItem, removeByTimestamp, toggleActiveByTimestamp } from '@/lib/local-storage'
+import { todo } from '@/types/todo'
 import { Fragment, useEffect, useState } from 'react'
 
 export default function Home() {
-  const [todos, setTodos]: any = useState([])
+  const [todos, setTodos] = useState<todo[]>([])
 
   useEffect(()=>{
     const result = getItem('todos')
     setTodos(result)
   }, [])
 
-  const add = (todoData: any) => {
+  const add = (todoData: todo) => {
     const signedData: any = {...todoData, timestamp: Date.now()}
     addItem("todos", signedData)
     setTodos([...todos, signedData])
@@ -32,7 +33,7 @@ export default function Home() {
     <>
       <CreateCard add={add}/>
       {
-        todos?.map((card: any) => (
+        todos?.map((card: todo) => (
           <Fragment key={card.timestamp}>
             <TodoCard
               card={card}
